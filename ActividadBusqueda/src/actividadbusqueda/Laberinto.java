@@ -12,7 +12,7 @@ package actividadbusqueda;
 public class Laberinto {
     
     public final short OBSTACULO = -1;
-    private short INICIO = -2;
+    public final short INICIO = -2;
     private static short OBJETIVO = -3;
     private int alto = 3;
     private int largo = 3;
@@ -27,8 +27,8 @@ public class Laberinto {
         
         for (int i = 0; i< largo + 2; i++) {
             for (int j = 0; j < alto + 2; j++) {
-                laberinto[i][j] = 0;
-            }
+                laberinto[i][j] = 0;              
+            }          
         }
         
         for (int i = 0; i < alto + 2; i++) {
@@ -49,6 +49,13 @@ public class Laberinto {
         
         //Especifiar el estado objetivo
         setValor(largo - 1, alto - 1, OBJETIVO);
+        
+         for (int i = 0; i< largo + 2; i++) {
+            for (int j = 0; j < alto + 2; j++) {               
+                System.out.println("["+i+","+j+"] = " + laberinto[i][j]);
+            }
+            System.out.println("");
+        }
     }
     
     public short getValor(int x, int y) { 
@@ -65,14 +72,6 @@ public class Laberinto {
     
     public int getAlto() { 
         return alto; 
-    }
-
-    public short getINICIO() {
-        return INICIO;
-    }
-
-    public void setINICIO(short INICIO) {
-        this.INICIO = INICIO;
     }
     
     
